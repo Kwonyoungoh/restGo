@@ -1,6 +1,11 @@
 package myapp
 
-import "net/http"
+import (
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"time"
+)
 
 type User struct{
 	FirstName string	`json:"first_name"`
@@ -35,7 +40,7 @@ func barHandler(w http.ResponseWriter, r *http.Request){
 	fmt.Fprintf(w,"hello %s!", name)
 }
 
-func NewHTTPHandler() http.Handler {
+func NewHttpHandler() http.Handler {
 		mux := http.NewServeMux()//라우터를 등록 mux라는 인스턴스에 라우터를 등록해서 그 인스턴스를 넘겨주는 방식
 
 	// 요청에 따라 무얼 할지 헨들러를 등록하는 곳
